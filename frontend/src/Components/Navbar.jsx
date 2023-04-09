@@ -39,7 +39,7 @@ export default function Simple() {
                             as={'nav'}
                             spacing={4}
                             display={{ base: 'none', md: 'flex' }}>
-                            <Link to={'/userlist'}>users</Link>
+                            <Link to={'/'}>users</Link>
                             <Link to={'/postlist'}>posts</Link>
                             <Link to={'/userAnalytics'}>UserAnalytics</Link>
                             <Link to={'/postAnalytics'}>postAnalytics</Link>
@@ -51,7 +51,7 @@ export default function Simple() {
                 {isOpen ? (
                     <Box pb={4} display={{ md: 'none' }}>
                         <Stack as={'nav'} spacing={4}>
-                            <Link to={'/userlist'}>users</Link>
+                            <Link to={'/'}>users</Link>
                             <Link to={'/postlist'}>posts</Link>
                             <Link to={'/userAnalytics'}>UserAnalytics</Link>
                             <Link to={'/postAnalytics'}>postAnalytics</Link>

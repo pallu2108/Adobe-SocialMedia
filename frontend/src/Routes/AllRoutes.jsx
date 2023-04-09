@@ -8,10 +8,9 @@ import UserList from '../Pages/UserList'
 const AllRoutes = () => {
     return (
         <Routes>
-            {/* <Route path='/login' element={<SignIn />}></Route> */}
             <Route path='/userAnalytics' element={<UserAnalytics />}></Route>
             <Route path='/postAnalytics' element={<PostAnalytics />}></Route>
-            <Route path='/userList' element={<UserList />}></Route>
+            <Route path='/' element={<UserList />}></Route>
             <Route path='/postList' element={<PostList />}></Route>
         </Routes>
     )
