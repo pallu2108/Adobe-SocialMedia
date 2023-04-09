@@ -24,7 +24,8 @@ let post_controller = {
                 ...data
             });
             await new_post.save();
-            res.send({ status: 200, "msg": "Post Added", new_Post: new_post })
+            let posts = await PostModel.find();
+            res.send({ status: 200, "msg": "Post Added", "posts": posts, new_Post: new_post })
         } catch (err) {
             res.send({ status: 500, "err": "somthing went wrong" })
         }
@@ -36,7 +37,9 @@ let post_controller = {
         try {
             if (post_id) {
                 let deleted_lecture = await PostModel.findOneAndDelete({ _id: post_id });
-                res.send({ status: 200, "msg": "Post Deleted", "deleted_lecture": deleted_lecture });
+                let posts = await PostModel.find();
+
+                res.send({ status: 200, "msg": "Post Deleted", "posts": posts, "deleted_lecture": deleted_lecture });
             }
         } catch {
             res.send({ status: 500, "err": "can't send data right now " });
@@ -51,7 +54,9 @@ let post_controller = {
             if (post_id) {
                 let updated_post = await PostModel.findOneAndUpdate({ _id: post_id }, { content: content }, { returnOriginal: false });
                 console.log(updated_post)
-                res.send({ status: 200, "msg": "User Updated", "updated_post": updated_post });
+                let posts = await PostModel.find();
+
+                res.send({ status: 200, "msg": "User Updated", "posts": posts, "updated_post": updated_post });
             }
         } catch {
             res.send({ status: 500, "err": "can't send data right now " });

@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 
 app.use("/users", users_route);
 app.use("/analytics", analyics_route);
-app.use("/posts", authentication, posts_route);
+app.use("/posts", posts_route);
 
 
 app.listen(process.env.PORT, async () => {

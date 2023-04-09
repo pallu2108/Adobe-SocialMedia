@@ -2,6 +2,7 @@ import * as types from "./actionTypes";
 
 const initalState = {
     topActiveUsers: [],
+    topLikedPosts: [],
     posts: [],
     users: [],
     isLoading: false,
@@ -21,6 +22,13 @@ const reducer = (state = initalState, action) => {
             return { ...state, isLoading: false, isError: false, users: payload, successmsg: payload.msg };
         case types.GET_USER_FAILURE:
             return { ...state, isLoading: false, isError: true, users: [], errmsg: payload };
+
+        case types.GET_TOP_ACTIVE_USER_REQUEST:
+            return { ...state, isLoading: true, isError: false };
+        case types.GET_TOP_ACTIVE_USER_SUCCESS:
+            return { ...state, isLoading: false, isError: false, topActiveUsers: payload, successmsg: payload.msg };
+        case types.GET_TOP_ACTIVE_USER_FAILURE:
+            return { ...state, isLoading: false, isError: true, topActiveUsers: [], errmsg: payload };
 
         case types.POST_USER_REQUEST:
             return { ...state, isLoading: true, isError: false };
@@ -51,6 +59,15 @@ const reducer = (state = initalState, action) => {
             return { ...state, isLoading: false, isError: false, posts: payload, successmsg: payload.msg };
         case types.GET_POST_FAILURE:
             return { ...state, isLoading: false, isError: true, posts: [], errmsg: payload };
+
+
+        case types.GET_TOP_POST_REQUEST:
+            return { ...state, isLoading: true, isError: false };
+        case types.GET_TOP_POST_SUCCESS:
+            return { ...state, isLoading: false, isError: false, topLikedPosts: payload, successmsg: payload.msg };
+        case types.GET_TOP_POST_FAILURE:
+            return { ...state, isLoading: false, isError: true, topLikedPosts: [], errmsg: payload };
+
 
         case types.POST_POST_REQUEST:
             return { ...state, isLoading: true, isError: false };
