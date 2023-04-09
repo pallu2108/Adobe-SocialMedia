@@ -1,6 +1,6 @@
 import * as types from "../actionTypes";
 import axios from "axios";
-const mainURL = 'http://localhost:8080/'
+const mainURL = 'https://adobe-social-z7da.onrender.com/'
 
 //---------------------- POSTS
 const getPost = (id) => (dispatch) => {
